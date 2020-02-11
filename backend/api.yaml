@@ -1,0 +1,97 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Sapient card service
+  description: A Sapient API
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: /v1
+paths:
+  /cards:
+    get:
+      description: |
+        Returns all cards
+      operationId: getCards
+      parameters:
+        - name: limit
+          in: query
+          description: maximum number of results to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 20
+      responses:
+        '200':
+          description: card response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    post:
+      description: Creates a new card
+      operationId: addCard
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        description: Cards to add to the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Card'
+      responses:
+        '200':
+          description: cards response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Card:
+      required:
+        - name
+        - cardNumber
+        - cardLimit
+      properties:
+        name:
+          type: string
+        cardNumber:
+          type: number
+        cardLimit:
+          type: number
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

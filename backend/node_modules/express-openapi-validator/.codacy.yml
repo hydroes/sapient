@@ -1,0 +1,5 @@
+exclude_paths:
+  - 'test/**'
+  - 'test/*'
+  - '**.md'
+  - src/framework/modded.express.mung.ts
