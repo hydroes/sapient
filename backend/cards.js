@@ -1,11 +1,12 @@
+const luhnValidator = require('./luhn-validator')
 const data = [
   {
-
     name: 'sparky stardust',
-    cardNumber: 12435654,
-    cardLimit: 50,
+    number: 12435654,
+    balance: 50,
   },
 ];
+
 
 class Cards {
   constructor() {
@@ -18,6 +19,11 @@ class Cards {
 
   add(card) {
     const cardNum = { id: this.id++, ...card };
+
+    if (!luhnValidator(card.number)) {
+      throw new Error('Invalid luhn')
+    }
+
     data.push(cardNum);
     return cardNum;
   }

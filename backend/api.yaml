@@ -71,14 +71,14 @@ components:
     Card:
       required:
         - name
-        - cardNumber
-        - cardLimit
+        - number
+        - balance
       properties:
         name:
           type: string
-        cardNumber:
+        number:
           type: number
-        cardLimit:
+        balance:
           type: number
     Error:
       required:
