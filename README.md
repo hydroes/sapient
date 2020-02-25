@@ -1,32 +1,36 @@
-# Sapient tech test
+# Sapient Credit card processor
 
-Card validator is a simple card luhn validator 
+Basic addition and validation of credit cards
 
 ## Installation
 
-Unzip and cd into unzipped folder
-
-To start the backend
+backend:
+from project route cd into backend 
 ```bash
-cd backend
-npm i && npm run start
+cd backend/java/
+mvn spring-boot:run
 ```
-
-To start the fronend
+frontend:
+from project route cd into backend 
 ```bash
 cd frontend
-npm i && npm run start
+npm i && npm start
 ```
 
-Open http:localhost:3000/
+## Usage
 
-Enjoy..
+open http://localhost:3000/ in your browser
 
+## test
+Run from java backend
+```bash
+mvn test 
+```
 
-
+## project structure
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. 
 
 Please make sure to update tests as appropriate.
 
