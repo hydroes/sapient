@@ -5,6 +5,7 @@ import java.math.BigInteger;
 
 public class CreditCardUtils {
     public static boolean isValidLuhn10(String n) throws NumberFormatException {
+        // this is the imperative version, please see the functional version in node
         new BigInteger(n);
         int[] arr = n.codePoints().map(i->i-'0').toArray();
                 int c= 0, sum = 0;

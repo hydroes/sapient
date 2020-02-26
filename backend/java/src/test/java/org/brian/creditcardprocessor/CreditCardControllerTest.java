@@ -47,7 +47,7 @@ public class CreditCardControllerTest {
 
     @Test
     public void saveValidatationError() throws Exception {
-        mockMvc.perform(post("/credit-cards").content("{\"name\":\"Lisa Adams\",\"cardNumber\":\"1234567890\",\"cardLimit\": 100}")
+        mockMvc.perform(post("/credit-cards").content("{\"name\":\"Brian Adams\",\"cardNumber\":\"1234567890\",\"cardLimit\": 100}")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is4xxClientError());
 
