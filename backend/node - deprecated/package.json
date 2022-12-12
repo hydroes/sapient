@@ -14,7 +14,7 @@
     "body-parser": "1.18.3",
     "cookie-parser": "1.4.4",
     "cors": "^2.8.5",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "express-openapi-validator": "3.x",
     "morgan": "1.9.1"
   },
